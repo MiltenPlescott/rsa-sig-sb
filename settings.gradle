@@ -1,0 +1,15 @@
+/*
+ * rsa-sig-sb
+ *
+ * Copyright (c) 2020, Milten Plescott. All rights reserved.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+rootProject.name = 'rsa-sig-sb'
+
+include ':security-providers'
+include ':benchmark'
+include ':ssm-link'
+include ':central-processing-unit'
+include ':secure-silver-module'

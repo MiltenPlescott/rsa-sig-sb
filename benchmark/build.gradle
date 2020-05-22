@@ -1,0 +1,33 @@
+/*
+ * rsa-sig-sb:ssm-link
+ *
+ * Copyright (c) 2020, Milten Plescott. All rights reserved.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+plugins {
+    id 'application'
+}
+
+dependencies {
+    implementation project(':central-processing-unit')
+    implementation 'org.jfree:jfreechart:1.5.0'
+}
+
+mainClassName = 'benchmark.Benchmark'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'benchmark.Benchmark'
+    }
+}
+
+run {
+    args = ["short", "default", "default"]
+    // format: [BENCHMARK_LENGTH, KEY_PAIR_GENERATOR_PROVIDER, SIGNATURE_PROVIDER]
+    //     for benchmark length, choose from "short", "medium" or "long"
+    //     for key pair generator security provider and signature algorithm security provider
+    //         use "defulat" to let JDK decide which one to use,
+    //         or use a provider's name, for example: SunJSSE or SunMSCAPI
+}

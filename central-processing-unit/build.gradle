@@ -1,0 +1,24 @@
+/*
+ * rsa-sig-sb:ssm-link
+ *
+ * Copyright (c) 2020, Milten Plescott. All rights reserved.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+plugins {
+    id 'application'
+}
+
+dependencies {
+    implementation project(':ssm-link')
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.65'
+}
+
+mainClassName = 'cpu.Cpu'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'cpu.Cpu'
+    }
+}

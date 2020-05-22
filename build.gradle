@@ -1,0 +1,130 @@
+/*
+ * rsa-sig-sb
+ *
+ * Copyright (c) 2020, Milten Plescott. All rights reserved.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.TaskAction
+
+import javax.inject.Inject
+
+plugins {
+    id 'base'
+    //    id 'com.github.spotbugs' version '4.0.8' apply false // **spotbugs
+    id 'net.ltgt.errorprone' version '1.1.1' apply false
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'pmd'
+    //    apply plugin: 'com.github.spotbugs' // **spotbugs
+    apply plugin: 'net.ltgt.errorprone'
+
+    dependencies {
+        implementation 'com.google.errorprone:error_prone_core:2.3.4'
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+class Global {
+    static offset = ' ' * 8
+    static fs = "${File.separator}"
+}
+
+clean.doLast {
+    println "${Global.offset}deleting: ${rootDir}${Global.fs}reports"
+    project.delete "${rootDir}/reports"
+}
+
+class CopyReportTask extends DefaultTask {
+    final String plugin
+
+    @TaskAction
+    def copyReport() {
+        println "${Global.offset}copying from: ${project.buildDir}${Global.fs}reports${Global.fs}${plugin}${Global.fs}main.html"
+        println "${Global.offset}copying into: ${project.rootDir}${Global.fs}reports${Global.fs}${project.name}${Global.fs}${plugin}.html"
+        project.copy {
+            from("${project.buildDir}/reports/${plugin}/main.html")
+            into("${project.rootDir}/reports/${project.name}")
+            rename { String fileName ->
+                "${plugin}.html"
+            }
+        }
+    }
+
+    @Inject
+    CopyReportTask(String plugin) {
+        this.plugin = plugin
+    }
+}
+
+subprojects {
+    task copySpotbugsReport(type: CopyReportTask, constructorArgs: ['spotbugs']) // **spotbugs
+    copySpotbugsReport.description = 'Copies Spotbugs reports to a more convenient location.' // **spotbugs
+
+    task copyPmdReport(type: CopyReportTask, constructorArgs: ['pmd'])
+    copyPmdReport.description = 'Copies PMD reports to a more convenient location.'
+
+    //    // **spotbugs
+    //    spotbugs {
+    //        //        toolVersion = '4.0.2'
+    //        toolVersion = '4.0.0'
+    //        ignoreFailures = true
+    //    }
+    //    // **spotbugs
+
+    //    // **spotbugs
+    //    spotbugsMain {
+    //        reports {
+    //            html {
+    //                enabled = true
+    //                stylesheet = 'fancy-hist.xsl'
+    //            }
+    //        }
+    //        doLast {
+    //            copySpotbugsReport.copyReport()
+    //        }
+    //
+    //    }
+    //    // **spotbugs
+
+    pmd {
+        toolVersion = '6.23.0'
+        ignoreFailures = true
+        ruleSets = [
+            'category/java/bestpractices.xml',
+            'category/java/codestyle.xml',
+            // 'category/java/design.xml',
+            'category/java/documentation.xml',
+            'category/java/errorprone.xml',
+            'category/java/multithreading.xml',
+            'category/java/performance.xml',
+            'category/java/security.xml',
+            'rulesets/java/quickstart.xml'
+        ]
+    }
+
+    pmdMain {
+        reports {
+            html.enabled true
+            xml.enabled false
+        }
+        doLast {
+            copyPmdReport.copyReport()
+        }
+    }
+}

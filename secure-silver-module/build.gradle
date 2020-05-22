@@ -1,0 +1,32 @@
+/*
+ * rsa-sig-sb:ssm-link
+ *
+ * Copyright (c) 2020, Milten Plescott. All rights reserved.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+plugins {
+    id 'application'
+}
+
+dependencies {
+    implementation project(':ssm-link')
+    implementation project(':benchmark')
+}
+
+mainClassName = 'ssm.Ssm'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ssm.Ssm'
+    }
+}
+
+run {
+    args = ["512", "512", "10000000", "default"]
+    // format: [RSA_BITS, HASH_BITS, MAX_QUERIES, KEY_PAIR_GENERATOR_PROVIDER]
+    //     for hash bits, choose a multiple of 8
+    //     for key pair generator security provider use "default" to let JDK decide which one to use,
+    //         or use a provider's name, for example: SunJSSE or SunMSCAPI
+}
