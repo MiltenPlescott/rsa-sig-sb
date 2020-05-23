@@ -13,14 +13,14 @@ import javax.inject.Inject
 
 plugins {
     id 'base'
-    //    id 'com.github.spotbugs' version '4.0.8' apply false // **spotbugs
+//    id 'com.github.spotbugs' version '4.0.8' apply false // **spotbugs
     id 'net.ltgt.errorprone' version '1.1.1' apply false
 }
 
 subprojects {
     apply plugin: 'java'
     apply plugin: 'pmd'
-    //    apply plugin: 'com.github.spotbugs' // **spotbugs
+//    apply plugin: 'com.github.spotbugs' // **spotbugs
     apply plugin: 'net.ltgt.errorprone'
 
     dependencies {
@@ -73,34 +73,34 @@ class CopyReportTask extends DefaultTask {
 }
 
 subprojects {
-    task copySpotbugsReport(type: CopyReportTask, constructorArgs: ['spotbugs']) // **spotbugs
-    copySpotbugsReport.description = 'Copies Spotbugs reports to a more convenient location.' // **spotbugs
+//    task copySpotbugsReport(type: CopyReportTask, constructorArgs: ['spotbugs']) // **spotbugs
+//    copySpotbugsReport.description = 'Copies Spotbugs reports to a more convenient location.' // **spotbugs
 
     task copyPmdReport(type: CopyReportTask, constructorArgs: ['pmd'])
     copyPmdReport.description = 'Copies PMD reports to a more convenient location.'
 
-    //    // **spotbugs
-    //    spotbugs {
-    //        //        toolVersion = '4.0.2'
-    //        toolVersion = '4.0.0'
-    //        ignoreFailures = true
-    //    }
-    //    // **spotbugs
+//        // **spotbugs
+//        spotbugs {
+//            // toolVersion = '4.0.2'
+//            toolVersion = '4.0.0'
+//            ignoreFailures = true
+//        }
+//        // **spotbugs
 
-    //    // **spotbugs
-    //    spotbugsMain {
-    //        reports {
-    //            html {
-    //                enabled = true
-    //                stylesheet = 'fancy-hist.xsl'
-    //            }
-    //        }
-    //        doLast {
-    //            copySpotbugsReport.copyReport()
-    //        }
-    //
-    //    }
-    //    // **spotbugs
+//        // **spotbugs
+//        spotbugsMain {
+//            reports {
+//                html {
+//                    enabled = true
+//                    stylesheet = 'fancy-hist.xsl'
+//                }
+//            }
+//            doLast {
+//                copySpotbugsReport.copyReport()
+//            }
+//    
+//        }
+//        // **spotbugs
 
     pmd {
         toolVersion = '6.23.0'
