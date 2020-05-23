@@ -1,4 +1,4 @@
-# rsa-sig-sb
+# RSA silver-box signature scheme using secure silver module
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -116,3 +116,9 @@ $ ./gradlew :secure-silver-module:dependencies
 ###### NOTE:
 Even if SunMSCAPI is listed as supported on your system, using it will result in getting `InvalidAlgorithmParameterException: Exponent parameter is not supported`, because we are using constant public exponent 65537 and SunMSCAPI doesn't allow choosing public exponent.
 See: [/mscapi/RSAKeyPairGenerator.java#L82-L85](https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/master/src/jdk.crypto.mscapi/windows/classes/sun/security/mscapi/RSAKeyPairGenerator.java#L82-L85)
+
+## License
+
+RSA silver-box signature scheme using secure silver module is available under MIT License. See [LICENSE.txt](LICENSE.txt) for more information.
+
+SPDX-License-Identifier: MIT
