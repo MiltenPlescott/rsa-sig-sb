@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-package benchmark;
+package com.github.miltenplescott.benchmark;
 
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;

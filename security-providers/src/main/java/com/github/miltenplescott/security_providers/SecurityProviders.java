@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-package security_providers;
+package com.github.miltenplescott.security_providers;
 
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPairGenerator;

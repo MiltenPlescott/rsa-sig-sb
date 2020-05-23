@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-package ssm_link;
+package com.github.miltenplescott.ssm_link;
 
 /**
  *

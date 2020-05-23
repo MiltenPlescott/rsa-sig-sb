@@ -1,5 +1,5 @@
 /*
- * rsa-sig-sb:ssm-link
+ * rsa-sig-sb:benchmark
  *
  * Copyright (c) 2020, Milten Plescott. All rights reserved.
  *
@@ -15,11 +15,11 @@ dependencies {
     implementation 'org.jfree:jfreechart:1.5.0'
 }
 
-mainClassName = 'benchmark.Benchmark'
+mainClassName = 'com.github.miltenplescott.benchmark.Benchmark'
 
 jar {
     manifest {
-        attributes 'Main-Class': 'benchmark.Benchmark'
+        attributes 'Main-Class': 'com.github.miltenplescott.benchmark.Benchmark'
     }
 }
 

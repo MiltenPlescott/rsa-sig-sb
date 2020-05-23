@@ -1,5 +1,5 @@
 /*
- * rsa-sig-sb:ssm-link
+ * rsa-sig-sb:security-providers
  *
  * Copyright (c) 2020, Milten Plescott. All rights reserved.
  *
@@ -10,10 +10,10 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'security_providers.SecurityProviders'
+mainClassName = 'com.github.miltenplescott.security_providers.SecurityProviders'
 
 jar {
     manifest {
-        attributes 'Main-Class': 'security_providers.SecurityProviders'
+        attributes 'Main-Class': 'com.github.miltenplescott.security_providers.SecurityProviders'
     }
 }

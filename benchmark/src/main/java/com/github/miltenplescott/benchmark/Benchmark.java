@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-package benchmark;
+package com.github.miltenplescott.benchmark;
 
 import java.math.BigInteger;
 import java.rmi.NotBoundException;
@@ -25,7 +25,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import cpu.Cpu;
+import com.github.miltenplescott.cpu.Cpu;
 
 /**
  *

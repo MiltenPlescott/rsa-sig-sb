@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-package cpu;
+package com.github.miltenplescott.cpu;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -19,8 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 
-import ssm_link.InvalidSsmQueryException;
-import ssm_link.SsmLinkService;
+import com.github.miltenplescott.ssm_link.InvalidSsmQueryException;
+import com.github.miltenplescott.ssm_link.SsmLinkService;
 
 /**
  *

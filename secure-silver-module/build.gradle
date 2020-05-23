@@ -1,5 +1,5 @@
 /*
- * rsa-sig-sb:ssm-link
+ * rsa-sig-sb:secure-silver-module
  *
  * Copyright (c) 2020, Milten Plescott. All rights reserved.
  *
@@ -15,11 +15,11 @@ dependencies {
     implementation project(':benchmark')
 }
 
-mainClassName = 'ssm.Ssm'
+mainClassName = 'com.github.miltenplescott.ssm.Ssm'
 
 jar {
     manifest {
-        attributes 'Main-Class': 'ssm.Ssm'
+        attributes 'Main-Class': 'com.github.miltenplescott.ssm.Ssm'
     }
 }
 

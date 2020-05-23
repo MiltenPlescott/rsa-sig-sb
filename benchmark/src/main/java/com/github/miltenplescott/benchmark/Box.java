@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-package benchmark;
+package com.github.miltenplescott.benchmark;
 
 /**
  *

@@ -1,5 +1,5 @@
 /*
- * rsa-sig-sb:ssm-link
+ * rsa-sig-sb:central-processing-unit
  *
  * Copyright (c) 2020, Milten Plescott. All rights reserved.
  *
@@ -15,10 +15,10 @@ dependencies {
     implementation 'org.bouncycastle:bcprov-jdk15on:1.65'
 }
 
-mainClassName = 'cpu.Cpu'
+mainClassName = 'com.github.miltenplescott.cpu.Cpu'
 
 jar {
     manifest {
-        attributes 'Main-Class': 'cpu.Cpu'
+        attributes 'Main-Class': 'com.github.miltenplescott.cpu.Cpu'
     }
 }

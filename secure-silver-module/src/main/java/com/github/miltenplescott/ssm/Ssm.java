@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-package ssm;
+package com.github.miltenplescott.ssm;
 
 import java.math.BigInteger;
 import java.rmi.RemoteException;
@@ -27,9 +27,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import benchmark.BenchmarkService;
-import ssm_link.InvalidSsmQueryException;
-import ssm_link.SsmLinkService;
+import com.github.miltenplescott.benchmark.BenchmarkService;
+import com.github.miltenplescott.ssm_link.InvalidSsmQueryException;
+import com.github.miltenplescott.ssm_link.SsmLinkService;
 
 /**
  *
